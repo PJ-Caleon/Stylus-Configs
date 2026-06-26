@@ -1,0 +1,239 @@
+/* ==UserStyle==
+@name           Instagram Rosé Pine (TUI Style)
+@namespace      github.com/syahrilshahiran/tui-styles
+@version        1.0.2
+@description    A minimalist reskin of Instagram in Rosé Pine colors matching the TUI style layout.
+@author         Caleon
+@preprocessor   default
+==/UserStyle== */
+
+@-moz-document domain("instagram.com") {
+    /* ─── ROSE PINE PALETTE ──────────────────────────────────────────── */
+    :root {
+        --rp-base: #1f1d2e;
+        --rp-surface: #191724;
+        --rp-overlay: #26233a;
+        --rp-muted: #6e6a86;
+        --rp-subtle: #908caa;
+        --rp-text: #e0def4;
+        --rp-love: #eb6f92;
+        --rp-gold: #f6c177;
+        --rp-rose: #ebbcba;
+        --rp-pine: #31748f;
+        --rp-foam: #9ccfd8;
+        --rp-hl-low: #21202e;
+        --rp-hl-med: #403d52;
+        --rp-hl-high: #524f67;
+
+        /* TUI Semantic Mapping */
+        --tui-bg: var(--rp-base);
+        --tui-bg-2: var(--rp-surface);
+        --tui-bg-3: var(--rp-overlay);
+        --tui-border: var(--rp-hl-med);
+        --tui-fg: var(--rp-text);
+        --tui-fg-dim: var(--rp-subtle);
+        --tui-main: var(--rp-love);
+        --tui-alt: var(--rp-foam);
+    }
+
+    /* ─── INSTAGRAM INTERNAL VARIABLE OVERRIDES ─────────────────────── */
+    &,
+    .x1qjc9v5, .x9f619, .x78zum5, .xdt5ytf, .x1iyjqo2, .xl56j7k {
+        /* Layout Variables Only - No forced element paints here */
+        --ig-primary-background: var(--tui-bg) !important;
+        --ig-secondary-background: var(--tui-bg-2) !important;
+        --ig-banner-background: var(--tui-bg-2) !important;
+        --ig-highlight-background: var(--tui-bg-3) !important;
+        --ig-elevated-background: var(--tui-bg-2) !important;
+        --ig-elevated-highlight-background: var(--tui-bg-3) !important;
+        --ig-bubble-background: var(--tui-bg-3) !important;
+
+        /* Typography & Icons */
+        --ig-primary-text: var(--tui-fg) !important;
+        --ig-secondary-text: var(--tui-fg-dim) !important;
+        --ig-tertiary-text: var(--tui-fg-dim) !important;
+        --primary-text: var(--tui-fg) !important;
+        --secondary-text: var(--tui-fg-dim) !important;
+        --ig-primary-icon: var(--tui-fg) !important;
+        --primary-icon: var(--tui-main) !important;
+        --ig-tertiary-icon: var(--tui-main) !important;
+
+        /* Borders and Separators */
+        --ig-separator: var(--tui-border) !important;
+        --ig-elevated-separator: var(--tui-border) !important;
+        --post-separator: var(--tui-border) !important;
+        --ig-stroke: var(--tui-border) !important;
+        --grey-2: var(--tui-border) !important;
+
+        /* Buttons & Interactions */
+        --ig-primary-button: var(--tui-main) !important;
+        --ig-primary-button-hover: var(--rp-hl-high) !important;
+        --ig-secondary-button-background: var(--tui-bg-3) !important;
+        --ig-secondary-button-hover: var(--rp-hl-med) !important;
+        --ig-secondary-button: var(--tui-fg) !important;
+        --ig-link: var(--tui-alt) !important;
+        --ig-badge: var(--tui-main) !important;
+
+        /* Scrollbars */
+        scrollbar-color: var(--tui-main) var(--tui-bg) !important;
+        font-family: "JetBrains Mono", "Courier New", monospace !important;
+    }
+
+    /* Target ONLY specific core window wrappers to drop the black background, leaving video layers safe */
+    body,
+    html,
+    #mount_0_0_0,
+    main[role="main"],
+    .x1n2onr6:not([role="presentation"]):not(:has(video)) {
+        background-color: var(--tui-bg) !important;
+    }
+
+    /* Global Typography Reset to Match TUI Style */
+    * {
+        font-family: "JetBrains Mono", "Courier New", monospace !important;
+    }
+
+    * {
+        border-radius: 0 !important;
+    }
+
+    /* Splash Screen Fix */
+    #splash-screen {
+        background-color: var(--tui-bg) !important;
+    }
+
+    /* Fixes the squared background container leaking behind circular avatars */
+    div:has(> canvas),
+    div:has(> .x1710v6s),
+    span:has(> img[alt*="profile picture"]),
+    .x1710v6s,
+    .x1vwmcee {
+        background: transparent !important;
+        background-color: transparent !important;
+        border-radius: 50% !important;
+    }
+
+    /* ─── SIDEBAR & INTERFACE PANELS ───────────────────────────────── */
+    /* Navigation Sidebar Main Container */
+    .x1xgvd2v {
+        background-color: var(--tui-bg-2) !important;
+        border-right: 1px solid var(--tui-border) !important;
+    }
+    .x1xgvd2v[style*="transform: translateX(0px);"] {
+        background-color: var(--tui-bg-3) !important;
+    }
+    .x1zvrr1 {
+        background-color: var(--tui-bg-2) !important;
+    }
+
+    /* ─── FEED POSTS & MODALS ───────────────────────────────────────── */
+    /* Post Containers */
+    ._aggc {
+        background-color: var(--tui-bg-2) !important;
+        border: 1px solid var(--tui-border) !important;
+        box-shadow: none !important;
+    }
+    ._aatc ._aasi,
+    ._ae1i,
+    ._aggc textarea.xvbhtw8 {
+        background-color: var(--tui-bg-2) !important;
+        color: var(--tui-fg) !important;
+    }
+
+    /* ─── INTERACTION & ICONS ───────────────────────────────────────── */
+    /* Heart icon / Action fills */
+    svg[aria-label="Unlike"],
+    svg[aria-label="Verified"] {
+        fill: var(--tui-main) !important;
+    }
+    svg[aria-label="Next"],
+    svg[aria-label="Go back"],
+    svg[aria-label="Close"],
+    svg[aria-label="Like"],
+    svg[aria-label="Comment"],
+    svg[aria-label="Share"] {
+        fill: var(--tui-fg) !important;
+    }
+
+    /* Active Reel Navigation Icon Tint */
+    .xq3z1fi {
+        color: var(--tui-main) !important;
+    }
+
+    /* Toggle Sliders & Switches */
+    .x1r7x56h { background-color: var(--tui-main) !important; }
+    .x100vrsf { background-color: var(--tui-bg-3) !important; }
+    .x1psfjxj { background-color: var(--tui-bg-2) !important; }
+
+    /* ─── DIRECT MESSAGES OVERRIDES ─────────────────────────────────── */
+    /* Target sent message bubbles that natively enforce the blue gradient/solid background */
+    div[role="row"] div[style*="background-image: linear-gradient"],
+    div[role="row"] div[style*="background-color: rgb(0, 149, 246)"],
+    div[role="row"] div[style*="background-color: var(--web-always-blue)"],
+    .x178gong,
+    .xdj266r.x11i5rnm.xat24cr:has(+ .xbb9750) {
+        background-image: none !important;
+        background: var(--tui-main) !important;
+        background-color: var(--tui-main) !important;
+    }
+
+    /* Force the inner text characters inside your sent messages to dark terminal tone for contrast */
+    div[role="row"] div[style*="background-image: linear-gradient"] span,
+    div[role="row"] div[style*="background-color: rgb(0, 149, 246)"] span,
+    div[role="row"] div[style*="background-color: var(--web-always-blue)"] span,
+    .x178gong span,
+    .x1vwmcee div[dir="auto"] {
+        color: var(--tui-bg) !important;
+    }
+
+    /* ─── STORIES & REELS RING OVERRIDES ────────────────────────────── */
+    .x5qyhuo {
+        background-color: var(--tui-bg) !important;
+    }
+    /* Story View Progress Line */
+    ._ac3p {
+        background-color: var(--tui-main) !important;
+    }
+    /* Profile Ring Indicators for Unseen Stories */
+    button:has(canvas + span > img[alt$="'s profile picture"]) {
+        canvas {
+            display: none !important;
+        }
+        span {
+            outline-style: solid !important;
+            outline-offset: 0.15rem !important;
+            border-radius: 50% !important;
+        }
+        &[aria-label^="Story by"][aria-label$="not seen"] span {
+            outline-color: var(--tui-main) !important;
+            outline-width: 2px !important;
+        }
+        &[aria-label^="Story by"]:not([aria-label$="not seen"]) span {
+            outline-color: var(--tui-border) !important;
+            outline-width: 1px !important;
+        }
+    }
+
+    /* ─── SEARCH / POPUP BOXES ──────────────────────────────────────── */
+    .x879a55,
+    .x7ywyr2:not([style*="background-color: rgb(var(--ig-highlight-background))"]) {
+        background-color: var(--tui-bg-3) !important;
+        border: 1px solid var(--tui-border) !important;
+    }
+
+    /* Custom Share Menu Dropdown Selections */
+    .xzloghq {
+        background-color: var(--tui-bg-3) !important;
+        color: var(--tui-fg) !important;
+    }
+    .xzloghq:hover {
+        color: var(--tui-bg) !important;
+        background-color: var(--tui-main) !important;
+    }
+    .xk5f4mz {
+        background-color: var(--tui-bg-2) !important;
+    }
+    .xk5f4mz:hover {
+        background-color: var(--tui-main) !important;
+    }
+}
